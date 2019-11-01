@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
-                <a class="nav-item nav-link" href=""><i class="fa fa-plus"></i></a>
+                <a class="nav-item nav-link" href="{% url 'create' %}"><i class="fa fa-plus"></i></a>
               <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
               <form id="logout" method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}

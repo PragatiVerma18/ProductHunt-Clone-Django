@@ -2,13 +2,15 @@
 
 {% block content %}
 
+<div class="container" style="display: flex;justify-content: center; align-content: center;" >
+<div class="block">
 {% if error %}
 <br>
-{{error}}
+<h3  style="color: red;">{{error}}</h3>
 <br>
 {% endif %}
 
-<h1> Sign Up! </h1> 
+<h1 class="pt-5"> Sign Up! </h1> 
 
 <form action="{% url 'signup' %}" method="POST">
 {% csrf_token %}
@@ -28,5 +30,6 @@ Confirm Password:
 <input type="submit" class="btn btn-primary" value="Sign Up!">
 
 </form>
-
+</div>
+</div>
 {% endblock %}

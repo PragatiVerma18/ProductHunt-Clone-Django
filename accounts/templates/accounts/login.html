@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="container" style="display: flex;justify-content: center; align-content: center;" >
+<div class="block">
 {% if error %}
 <br>
-{{error}}
+<h3 style="color: red;">{{error}}</h3>
 <br>
 {% endif %}
 
-<h1> Login </h1> 
+<h1 class="pt-5"> Login </h1> 
 
 <form action="{% url 'login' %}" method="POST">
 {% csrf_token %}
@@ -24,5 +25,6 @@ Password:
 <input type="submit" class="btn btn-primary" value="Login">
 
 </form>
-
+</div>
+</div>
 {% endblock %}

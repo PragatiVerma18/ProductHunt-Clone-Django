@@ -11,7 +11,7 @@ def home(request):
 @login_required
 def create(request):
   if request.method == 'POST':
-    if request.POST['title'] and request.POST['body'] and request.POST['url'] and request.FILES['icon'] and request.FILES['image']:
+    if request.POST['title'] and request.POST['body'] and request.POST['url'] and len(request.FILES) != 0:
       product = Product()
       product.title = request.POST['title']
       product.body = request.POST['body']
@@ -20,7 +20,7 @@ def create(request):
       else:
         product.url = 'http://'+request.POST['url']
       product.icon = request.FILES['icon']
-      product.icon = request.FILES['image']
+      product.image = request.FILES['image']
       product.pub_date = timezone.datetime.now()
       product.hunter = request.user
       product.save()
@@ -28,7 +28,7 @@ def create(request):
 
 
     else:
-      return render(request, 'products/create.html', {'error': 'All fields are required'})
+      return render(request, 'products/create.html', {'error': '** All fields are required **'})
 
 
   else:
